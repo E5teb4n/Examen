@@ -2,7 +2,8 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 
 <html>
 <head>
@@ -65,7 +66,37 @@
       }
     </style>
 
-     <link href="dashboard.css" rel="stylesheet">
+       <!-- Custom styles for this template -->
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/dashboard/">
+    
+    <link href="${pageContext.request.contextPath}/resources/css/dashboard.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet"/>
+	<link href="${pageContext.request.contextPath}/resources/css/estilos.css" rel="stylesheet"/>
+	<%-- <link href="${pageContext.request.contextPath}/resources/css/bootstrap-table.min.css" rel="stylesheet"> --%>
+	
+	<script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>     	
+	<%-- <script src="${pageContext.request.contextPath}/resources/js/bootstrap-table.min.js"></script> --%>
+	
+	
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" /> -->
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap-table.min.css" />	
+		
+	<!-- JavaScript -->
+	<script src="${pageContext.request.contextPath}/resources/js/alertify.min.js"></script>
+	
+	<!-- CSS -->
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/alertify.min.css"/>
+	<!-- Default theme -->
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/themes/default.min.css"/>
+	<!-- <!-- Semantic UI theme
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
+	Bootstrap theme 
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/> -->
+
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
   </head>
  
 
@@ -73,6 +104,7 @@
 
 
 <body>
+
 <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
   <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="#">ISMAC</a>
   <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -94,7 +126,7 @@
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="${pageContext.request.contextPath}/">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home align-text-bottom" aria-hidden="true">
-            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+         	<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
             <polyline points="9 22 9 12 15 12 15 22"></polyline>
             </svg>
              Dashboard
@@ -109,7 +141,7 @@
 			  Registro
             </a>
           <li class="nav-item">
-            <a class="nav-link" href="${pageContext.request.contextPath}/usuarios">
+            <a class="nav-link active" href="${pageContext.request.contextPath}/usuarios">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users align-text-bottom" aria-hidden="true">
               <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
               <circle cx="9" cy="7" r="4"></circle>
@@ -205,8 +237,8 @@
 			<td>${item.correo}</td>
 			<td>${item.tipo}</td>
 			<td>
-				<button><a href="${pageContext.request.contextPath}/usuarios/findOne?idUsuario=${item.idUsuario}&opcion=1" >Actualizar</a></button>
-				<button><a href="${pageContext.request.contextPath}/usuarios/findOne?idUsuario=${item.idUsuario}&opcion=2" >Borrar</a></button>
+				<button type="button" class="btn btn-outline-success"><a href="${pageContext.request.contextPath}/usuarios/findOne?idUsuario=${item.idUsuario}&opcion=1" >Actualizar</a></button>
+				<button type="button" class="btn btn-outline-danger" class="btn btn-danger"><a href="${pageContext.request.contextPath}/usuarios/findOne?idUsuario=${item.idUsuario}&opcion=2" >Borrar</a></button>
 			<td> 
 		</tr>
 		</c:forEach>
