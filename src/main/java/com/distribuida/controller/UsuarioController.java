@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
+import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -51,6 +52,17 @@ public class UsuarioController {
 		}
 	}
 	
+	@RequestMapping("/busqueda")
+	public String findAllBusqueda(@RequestParam("busqueda") @Nullable String busqueda, Model model) {
+		if(busqueda == null) busqueda="";
+		
+		List<Usuario> usuario = usuarioService.findAll(busqueda);
+		
+		model.addAttribute("usuario",usuario);
+		
+		return "listar-usuarios";
+	}
+	
 	
 	@PostMapping("/add")
 	public String add(@ModelAttribute("usuario") Usuario usuario, BindingResult bindingResult) {
@@ -75,7 +87,7 @@ public class UsuarioController {
 		model.addAttribute("usuario", usuario);
 		return "agregar-usuarios";
 	}
-	
+
 
 	@InitBinder
 		public void miBinder(WebDataBinder binder) {

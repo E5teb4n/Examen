@@ -198,24 +198,39 @@
       
 <h1>Usuarios</h1>
 
+
+	
+	<form:form action="busqueda" method="GET">
+		<input type="search" id="busqueda" name="busqueda">
+		<button type="submit">Busqueda</button>	
+	</form:form>
+	
 	<button><a href="${pageContext.request.contextPath}/usuarios/frmAdd" >Añadir</a></button>
 	<div class="table-responsive">
-	<table class="table table-striped table-sm">
+	<table id="tabla1"
+				name="tabla1"
+				class="table table-striped table-sm"
+				 data-toggle="tabla1"  		 
+			  	 data-height="600"
+			     data-search="true"
+			     data-toolbar=".toolbar"
+			     data-pagination="true"	 	         
+			     class="table table-striped table-sm">
 	<thead>
 		<tr>
-			<th scope="col">idUsuario</th>
-			<th scope="col">cedula</th>
-			<th scope="col">nombre1</th>
-			<th scope="col">nombre2</th>
-			<th scope="col">apellido1</th>
-			<th scope="col">apellido2</th>
-			<th scope="col">fechaNacimiento</th>
-			<th scope="col">edad</th>
-			<th scope="col">sexo</th>
-			<th scope="col">direccion </th>
-			<th scope="col">telefono</th>
-			<th scope="col">correo</th>
-			<th scope="col">tipo</th>
+			<th data-field="idUsuario" data-sortable="true">idUsuario</th>
+			<th data-field="Cedula" data-sortable="true">cedula</th>
+			<th data-field="1er Nombre" data-sortable="true">nombre1</th>
+			 <th data-field="2do Nombre" data-sortable="true">nombre2</th>
+			<th data-field="1er Apellido" data-sortable="true">apellido1</th>
+			 <th data-field="2do Apellido" data-sortable="true">apellido2</th>
+			<th data-field="Fecha de Nacimiento" data-sortable="true">fechaNacimiento</th>
+			 <th data-field="Edad" data-sortable="true">edad</th>
+			<th data-field="Sexo" data-sortable="true">sexo</th>
+			<th data-field="Direccion" data-sortable="true">direccion </th>
+			<th data-field="Telefono" data-sortable="true">telefono</th>
+			 <th data-field="Correo" data-sortable="true">correo</th>
+			 <th data-field="Tipo Usuario" data-sortable="true">tipo</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -237,6 +252,7 @@
 			<td>${item.correo}</td>
 			<td>${item.tipo}</td>
 			<td>
+			 <div class="container-fluid btn-group" role="group" aria-label="...">	 
 				<button type="button" class="btn btn-success" ><a href="${pageContext.request.contextPath}/usuarios/findOne?idUsuario=${item.idUsuario}&opcion=1" ><svg style="color: white;  text-decoration: none;
 				" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
   <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"></path>
@@ -245,6 +261,7 @@
 				<button type="button" class="btn btn-danger"><a href="${pageContext.request.contextPath}/usuarios/findOne?idUsuario=${item.idUsuario}&opcion=2" ><svg style="color: white;  text-decoration: none; xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
   <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
 </svg></a></button>
+</div>
 			<td> 
 		</tr>
 		</c:forEach>
@@ -253,7 +270,34 @@
 	</div>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+  <script src="${pageContext.request.contextPath}/resources/js/bootstrap.bundle.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
+      <script src="${pageContext.request.contextPath}/resources/js/dashboard.js"></script>
 
+	<script src="${pageContext.request.contextPath}/resources/js/jquery-3.6.3.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/bootstrap.bundle.min.js" ></script>
+    <script src="${pageContext.request.contextPath}/resources/js/bootstrap-table.min.js"></script>
 
+    <script>
+	  var $table = $('#table2')
+	
+	  $(function() {
+	    $table.bootstrapTable({
+	      sortReset: true
+	    })
+	    
+	  })
+	  
+	  
+	    var $tabla1 = $('#tabla1')
+	
+		  $(function() {
+		    $tabla1.bootstrapTable({
+		      sortReset: true
+		    })
+		    
+		  })
+</script>
 </body>
 </html>

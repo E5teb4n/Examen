@@ -8,10 +8,13 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Usuarios agregar</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
+ <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/checkout/">
+
+<link href="/docs/5.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -186,25 +189,26 @@
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 <h1>Usuarios</h1>
-
+<div class="table-responsive">
 <form:form action="add" modelAttribute="usuario" method="POST">
 		
 		<form:hidden path="idUsuario"/> 
 		
-		Cedula
-		<form:input path="cedula" type="number" id="cedula" name="cedula" maxLength="10" />
+		 Cedula
+		<form:input path="cedula" type="number" id="cedula" name="cedula" formControlName="cedula" maxLength="10"/>
+		
 		<br>
 		Nombre1
-		<form:input path="nombre1" type="text" id="nombre1" name="nombre1" maxLength="15" />
+		<form:input path="nombre1" type="text" id="nombre1" name="nombre1" formControlName="nombre1" maxLength="15" />
 		<br>
 		Nombre2
-		<form:input path="nombre2" type="text" id="nombre2" name="nombre2" maxLength="15" />
+		<form:input path="nombre2" type="text" id="nombre2" name="nombre2" formControlName="nombre2" maxLength="15" />
 		<br>
 		Apellido1
-		<form:input path="apellido1" type="text" id="apellido1" name="apellido1" maxLength="15" />
+		<form:input path="apellido1" type="text" id="apellido1" name="apellido1" formControlName="apellido1" maxLength="15" />
 		<br>
 		Apellido2
-		<form:input path="apellido2" type="text" id="apellido2" name="apellido2" maxLength="15" />
+		<form:input path="apellido2" type="text" id="apellido2" name="apellido2" formControlName="apellido2" maxLength="15" />
 		<br>
 		Fecha de Nacimiento
 		<form:input path="fechaNacimiento" type="date" id="fechaNacimiento" name="fechaNacimiento" />
@@ -212,9 +216,20 @@
 		Edad
 		<form:input path="edad" type="number" id="edad" name="edad" maxLength="15" />
 		<br>
-		Sexo
-		<form:input path="sexo" type="text" id="sexo" name="sexo" maxLength="15" />
-		<br>
+	
+		<label> Sexo <form:errors path="sexo" style="color:red" /></label>  <%-- <form:errors path="" style="color:red" /> --%>
+	                 <div class="form-group">
+		                
+		                 <div class="form-check form-check-inline">		                  		                                
+						   <form:radiobutton path="sexo" class="form-check-input" value="Masculino" name="sexo" id="flexRadioDefault1" />						  						
+						   <label class="form-check-label" for="flexRadioDefault1">Masculino</label>
+						 </div>
+						 
+						 <div class="form-check form-check-inline">						   						 					
+						   <form:radiobutton path="sexo" class="form-check-input" value="Femenino" name="sexo" id="flexRadioDefault2" />			
+						   <label class="form-check-label" for="flexRadioDefault2">Femenino</label>
+						 </div>
+						 <br>
 		Direccion
 		<form:input path="direccion" type="text" id="direccion" name="direccion" maxLength="40" />
 		<br>
@@ -224,9 +239,21 @@
 		Correo
 		<form:input path="correo" type="email" id="correo" name="correo" maxLength="40" />
 		<br>
+		<br>
+		Escoja 5 colores de su preferencia
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		</div>
 		
 		<button type="submit" id="btnGuardar">Guardar </button>
-		<button type="button" id="btnCancelar" onClick="window.location.href='/ismac-spring-factura-web/clientes'; return false;">Cancelar </button>
+		<button type="button" id="btnCancelar" onClick="window.location.href='/Examen-Web/usuarios'; return false;">Cancelar </button>
 	</form:form>
 	
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
