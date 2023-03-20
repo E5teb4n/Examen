@@ -135,7 +135,7 @@
 			  Registro
             </a>
           <li class="nav-item">
-            <a class="nav-link" href="${pageContext.request.contextPath}/usuarios">
+            <a class="nav-link" href="${pageContext.request.contextPath}/usuarios/findAll">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users align-text-bottom" aria-hidden="true">
               <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
               <circle cx="9" cy="7" r="4"></circle>
@@ -188,33 +188,36 @@
     </nav>
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-<h1>Usuarios</h1>
+<h1>Registro de Usuarios</h1>
 <div class="table-responsive">
 <form:form action="add" modelAttribute="usuario" method="POST">
 		
 		<form:hidden path="idUsuario"/> 
+		 <label >Cedula                 
+                  	<form:input path="cedula" type="number" id="cedula" name="cedula" formControlName="cedula" class="form-control" maxlength="20" />                                                    
+                </div>                                
 		
-		 Cedula
+		<!--   Cedula
 		<form:input path="cedula" type="number" id="cedula" name="cedula" formControlName="cedula" maxLength="10"/>
-		
+		-->
 		<br>
-		Nombre1
-		<form:input path="nombre1" type="text" id="nombre1" name="nombre1" formControlName="nombre1" maxLength="15" />
+		<label>Nombre1 
+		<form:input path="nombre1" type="text" id="nombre1" name="nombre1" formControlName="nombre1" class="form-control" maxLength="15" />
 		<br>
-		Nombre2
-		<form:input path="nombre2" type="text" id="nombre2" name="nombre2" formControlName="nombre2" maxLength="15" />
+		<label>Nombre2 
+		<form:input path="nombre2" type="text" id="nombre2" name="nombre2" formControlName="nombre2" class="form-control" maxLength="15" />
 		<br>
-		Apellido1
-		<form:input path="apellido1" type="text" id="apellido1" name="apellido1" formControlName="apellido1" maxLength="15" />
+		<label>Apellido1
+		<form:input path="apellido1" type="text" id="apellido1" name="apellido1" formControlName="apellido1" class="form-control" maxLength="15" />
 		<br>
-		Apellido2
-		<form:input path="apellido2" type="text" id="apellido2" name="apellido2" formControlName="apellido2" maxLength="15" />
+		<label>Apellido2
+		<form:input path="apellido2" type="text" id="apellido2" name="apellido2" formControlName="apellido2"  class="form-control" maxLength="15" />
 		<br>
-		Fecha de Nacimiento
-		<form:input path="fechaNacimiento" type="date" id="fechaNacimiento" name="fechaNacimiento" />
+		<label>Fecha de Nacimiento
+		<form:input path="fechaNacimiento" type="date" id="fechaNacimiento" name="fechaNacimiento"  class="form-control" />
 		<br>
-		Edad
-		<form:input path="edad" type="number" id="edad" name="edad" maxLength="15" />
+		<label>Edad
+		<form:input path="edad" type="number" id="edad" name="edad"  class="form-control" maxLength="15" />
 		<br>
 	
 		<label> Sexo <form:errors path="sexo" style="color:red" /></label>  <%-- <form:errors path="" style="color:red" /> --%>
@@ -230,18 +233,17 @@
 						   <label class="form-check-label" for="flexRadioDefault2">Femenino</label>
 						 </div>
 						 <br>
-		Direccion
-		<form:input path="direccion" type="text" id="direccion" name="direccion" maxLength="40" />
+		<label>Direccion
+		<form:input path="direccion" type="text" id="direccion" name="direccion"  class="form-control" maxLength="40" />
 		<br>
-		Telefono
-		<form:input path="telefono" type="number" id="telefono" name="telefono" maxLength="20" />
+		<label>Telefono
+		<form:input path="telefono" type="number" id="telefono" name="telefono"  class="form-control" maxLength="20" />
 		<br>
-		Correo
-		<form:input path="correo" type="email" id="correo" name="correo" maxLength="40" />
+		<label>Correo
+		<form:input path="correo" type="email" id="correo" name="correo"  class="form-control" maxLength="40" />
 		<br>
 		<br>
-		Escoja 5 colores de su preferencia
-		
+
 		
 		
 		
@@ -252,8 +254,8 @@
 		
 		</div>
 		
-		<button type="submit" id="btnGuardar">Guardar </button>
-		<button type="button" id="btnCancelar" onClick="window.location.href='/Examen-Web/usuarios'; return false;">Cancelar </button>
+		<button type="submit" id="btnGuardar" class="btn btn-primary">Guardar </button>
+		<button type="button" id="btnCancelar" class="btn btn-danger" onClick="window.location.href='/Examen-Web/usuarios/findAll'; return false;">Cancelar </button>
 	</form:form>
 	
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
