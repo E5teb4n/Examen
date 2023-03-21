@@ -194,7 +194,7 @@
 		
 		<form:hidden path="idUsuario"/> 
 		 <label >Cedula                 
-                  	<form:input path="cedula" type="number" id="cedula" name="cedula" formControlName="cedula" class="form-control" maxlength="20" />                                                    
+                  	<form:input path="cedula" type="number" id="cedula" name="cedula" formControlName="cedula" class="form-control"  maxlength="20" required="required"/>                                                    
                 </div>                                
 		
 		<!--   Cedula
@@ -202,25 +202,25 @@
 		-->
 		<br>
 		<label>Nombre1 
-		<form:input path="nombre1" type="text" id="nombre1" name="nombre1" formControlName="nombre1" class="form-control" maxLength="15" />
+		<form:input path="nombre1" type="text" id="nombre1" name="nombre1" formControlName="nombre1" class="form-control" minlength="3" maxLength="15" required="required"/>
 		<br>
 		<label>Nombre2 
-		<form:input path="nombre2" type="text" id="nombre2" name="nombre2" formControlName="nombre2" class="form-control" maxLength="15" />
+		<form:input path="nombre2" type="text" id="nombre2" name="nombre2" formControlName="nombre2" class="form-control" minlength="3" maxLength="15" required="required"/>
 		<br>
 		<label>Apellido1
-		<form:input path="apellido1" type="text" id="apellido1" name="apellido1" formControlName="apellido1" class="form-control" maxLength="15" />
+		<form:input path="apellido1" type="text" id="apellido1" name="apellido1" formControlName="apellido1" class="form-control"  minlength="3" maxLength="15" required="required"/>
 		<br>
 		<label>Apellido2
-		<form:input path="apellido2" type="text" id="apellido2" name="apellido2" formControlName="apellido2"  class="form-control" maxLength="15" />
+		<form:input path="apellido2" type="text" id="apellido2" name="apellido2" formControlName="apellido2"  class="form-control"  minlength="3" maxLength="15" required="required"/>
 		<br>
 		<label>Fecha de Nacimiento
-		<form:input path="fechaNacimiento" type="date" id="fechaNacimiento" name="fechaNacimiento"  class="form-control" />
+		<form:input path="fechaNacimiento" type="date" id="fechaNacimiento" name="fechaNacimiento"  class="form-control" required="required" />
 		<br>
 		<label>Edad
-		<form:input path="edad" type="number" id="edad" name="edad"  class="form-control" maxLength="15" />
+		<form:input path="edad" type="number" id="edad" name="edad"  class="form-control" maxLength="15" required="required"/>
 		<br>
 	
-		<label> Sexo <form:errors path="sexo" style="color:red" /></label>  <%-- <form:errors path="" style="color:red" /> --%>
+		<label> Sexo <form:errors path="sexo" style="color:red" /></label> 
 	                 <div class="form-group">
 		                
 		                 <div class="form-check form-check-inline">		                  		                                
@@ -234,13 +234,13 @@
 						 </div>
 						 <br>
 		<label>Direccion
-		<form:input path="direccion" type="text" id="direccion" name="direccion"  class="form-control" maxLength="40" />
+		<form:input path="direccion" type="text" id="direccion" name="direccion"  class="form-control"  minlength="3" maxLength="40" required="required"/>
 		<br>
 		<label>Telefono
-		<form:input path="telefono" type="number" id="telefono" name="telefono"  class="form-control" maxLength="20" />
+		<form:input path="telefono" type="number" id="telefono" name="telefono"  class="form-control"   maxLength="20" required="required"/>
 		<br>
 		<label>Correo
-		<form:input path="correo" type="email" id="correo" name="correo"  class="form-control" maxLength="40" />
+		<form:input path="correo" type="email" id="correo" name="correo"  class="form-control" maxLength="40" required="required"/>
 		<br>
 		<br>
 

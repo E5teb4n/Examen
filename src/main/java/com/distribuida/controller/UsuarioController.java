@@ -29,13 +29,13 @@ public class UsuarioController {
 	
 	
 	@RequestMapping("/findAll")
-	public String findAll(@RequestParam("busqueda")@Nullable String busqueda, ModelMap modelMap) {
-	List<Usuario> usuario= null;
+	public String findAll(@RequestParam("busqueda") @Nullable String busqueda, ModelMap modelMap) {
+	List<Usuario> usuario=usuarioService.findAll();
 	if(busqueda == null) {
 		busqueda="";
 		usuario = usuarioService.findAll();
 	}else {
-		List<Usuario> usuario1= usuarioService.findAll(busqueda);
+		 usuario= usuarioService.findAll(busqueda);
 	}
 
 	modelMap.addAttribute("usuarios",usuario);

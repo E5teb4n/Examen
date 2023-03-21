@@ -71,15 +71,12 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 		// TODO Auto-generated method stub
 		Session session= sessionFactory.getCurrentSession();
 		Query <Usuario> query = session.createQuery(
-			"Select us "
+			" Select us "
 				+" from Usuario us "
-				+" where us.cedula LIKE : busqueda "
-				+" or us.nombre1 LIKE : busqueda "
+				+" where us.nombre1 LIKE : busqueda "
 				+" or us.nombre2 LIKE : busqueda "
 				+" or us.apellido1 LIKE : busqueda "
 				+" or us.apellido2 LIKE : busqueda "
-				+" or us.fechaNacimiento LIKE : busqueda "
-				+" or us.edad LIKE : busqueda "
 				+" or us.sexo LIKE : busqueda "
 				+" or us.direccion LIKE : busqueda "
 				+" or us.telefono LIKE : busqueda "
@@ -87,7 +84,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 				+" or us.tipo LIKE : busqueda "
 				, Usuario.class);
 				
-		query.setParameter("busqueda", "%"+busqueda+"%");	
+		query.setParameter("busqueda","%" +busqueda+"%");	
 		return query.getResultList();
 	}
 
